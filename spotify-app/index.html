@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html lang='en'>
+	<head>
+	    <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="A spotify app"/>
+	    <title> Spotify </title>
+
+	    <!-- Bootstrap -->
+	    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+	    <!-- main CSS -->
+	    <link rel="stylesheet" href="assets/css/main.css">
+
+	    <!-- Font Awesome -->
+	    <link rel ="stylesheet" href="assets/css/all.min.css">
+
+	    <!-- dataTables -->
+	    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">
+
+	</head>
+
+<body>
+<!-- 	<div style="width:100vw;background-color: red;height: 200px; position: relative;">
+		<div id="d1" style="width:41.66vw;margin-left:8.33vw;background-color:blue;height:200px;">
+		<div id="d2" style="width:41.66vw;left:50vw;background-color:green;height:200px;position: absolute;">
+		</div>
+	</div> -->
+
+	<div class="row-fluid justify-content-center">
+		<div class="col-lg-10 offset-lg-1">
+			<h2> My recent spotify profile </h2>
+
+			<p> 
+				By default, the calendar heatmap and data table show plays. Click an <span style="background-color:#FEFFC3">audio feature</span> to see more or <span class="reset text-primary">reset</span> to plays. 
+			<p>
+			<div class="row align-items-center">
+				<div class="col-lg-6"><div id="spotify-radar"></div></div>
+				<div class="col-lg-6"><div id="spotify-heatmap"></div></div>
+			</div>
+			<div class="row">
+				<div class="col-lg-6"><h4>My top tracks</h4><div id="spotify-table-container"></div></div>
+				<div class="col-lg-6">
+					<h4>My top</h4>
+					<div class="switch-field">
+						<input type="radio" id="radio-one" name="top-choice" value="genres" checked/>
+						<label for="radio-one">Genres</label>
+						<input type="radio" id="radio-two" name="top-choice" value="artists" />
+						<label for="radio-two">Artists</label>
+					</div>
+					<div id="spotify-genres"></div>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+
+<!-- Bootstrap-required libraries (bootstrap.js, popper.js, and jQuery) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+<!-- d3 -->
+<script src="assets/js/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3-color.v1.min.js"></script>  
+<script src="https://d3js.org/d3-interpolate.v1.min.js"></script>  
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+<!-- dataTables -->
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script> 
+
+<!-- library for making radar charts -->
+<script src="assets/js/radarChart.js"></script>	
+
+<!-- spotify visualizations -->
+<script>
+	const spotifyDataPath = "/data";
+	const spotifyRadarDataPath = spotifyDataPath + "/radar.json";
+	const spotifyHeatmapDataPath = spotifyDataPath + "/heatmap.csv";
+	const spotifyTableDataPath = spotifyDataPath + "/table.json";
+	const spotifyGenresDataPath = spotifyDataPath + "/genres.json";
+</script> 
+<script src="assets/js/spotifyRadar.js"></script>
+<script src="assets/js/spotifyHeatmap.js"></script>	
+<script src="assets/js/spotifyTable.js"></script>
+<script src="assets/js/spotifyGenres.js"></script>	
+
+</html>

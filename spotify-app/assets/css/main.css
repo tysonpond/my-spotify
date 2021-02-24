@@ -1,0 +1,123 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400);
+
+/* --------- GLOBAL STYLES --------- */
+:root {
+   --green: #41ae76;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+li {
+	list-style:  none;
+}
+
+a, a:hover {
+	text-decoration: none;
+}
+
+body {
+	font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-weight: 400;
+	margin: 20px 0 40px 0;
+}
+
+h1, h2, h3, h4 {
+	font-family: "Montserrat", "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+/* ------- END GLOBAL STYLES ------ */
+
+/* ---- SPOTIFY VISUALIZATIONS ----- */
+/* Reset button */
+span.reset {
+	cursor: pointer;
+}
+
+/* Heatmap */
+#spotify-heatmap #yAxis .tick line, #spotify-heatmap #yAxis path{
+	visibility: hidden; /* hide y-Axis */
+}
+
+/* Datatable */
+#spotify-table-container {
+	width: 480px;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+/* datatable tooltip for when text is longer than cell */
+[data-tooltip]:not([data-tooltip=""]) {
+	position: relative;
+	cursor: help;
+}
+
+[data-tooltip]:not([data-tooltip=""]):hover::before {
+	content: attr(data-tooltip);
+	position: absolute;
+	bottom: -46px;
+	padding: 10px;
+	background: #000;
+	color: #fff;
+	font-size: 14px;
+	white-space: wrap;
+	z-index: 100;
+}
+
+/* Genres */
+#spotify-genres {
+	display: flex;
+	flex-wrap: wrap;
+	width: 400px;
+}
+
+.switch-field {
+	display: flex;
+	overflow: hidden;
+}
+
+.switch-field input {
+	position: absolute !important;
+	clip: rect(0, 0, 0, 0);
+	height: 1px;
+	width: 1px;
+	border: 0;
+	overflow: hidden;
+}
+
+.switch-field label {
+	background-color: #e4e4e4;
+	color: rgba(0, 0, 0, 0.6);
+	font-size: 14px;
+	line-height: 1;
+	text-align: center;
+	padding: 8px 16px;
+	margin-right: -1px;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+	transition: all 0.1s ease-in-out;
+}
+
+.switch-field label:hover {
+	cursor: pointer;
+}
+
+.switch-field input:checked + label {
+	background-color: var(--green);
+	box-shadow: none;
+}
+
+.switch-field label:first-of-type {
+	border-radius: 4px 0 0 4px;
+}
+
+.switch-field label:last-of-type {
+	border-radius: 0 4px 4px 0;
+}
