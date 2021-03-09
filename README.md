@@ -1,4 +1,4 @@
-# My Spotify tunes 🎵
+# My Spotify 🎵
 
 ## Overview
 I built a pipeline to collect my daily Spotify activity using Python. To gain insights from my data, I made a web app using HTML/CSS/Javascript for the front-end and d3.js for 
@@ -8,7 +8,7 @@ making visualizations.
 Data collection, data pipeline, Spotify, interactive data visualizations, Python, Javascript (d3.js), web app
 
 ## Data collection
-~~Spotify API does not give access to your listening history. There is a "download your data" option on Spotify's "Privacy Settings" page, but it says it may take up to 30 days to complete. Our solution was to link a Last.fm account to Spotify, because they track (and store) Spotify streaming activity in real-time.~~ See TODO section, I made this more complicated than needed 😞.
+Spotify does not give access to your full listening history. Their API can only return your last 50 tracs. There is a "download your data" option on Spotify's "Privacy Settings" page, but it says it may take up to 30 days to complete. Our solution was to link a Last.fm account to Spotify, because they track (and store) Spotify streaming activity in real-time.
 
 Our data collection pipeline is as follows:
 
@@ -33,10 +33,9 @@ Our data collection pipeline is as follows:
 6. `create_app_data.py`
 - Compute aggregate statistics from merged data from step 5 such as number of daily plays. Generate data for several visualizations.
 
-## TODO
-- I realized Spotify API does in fact have a "Get Recent Tracks" option (which makes sense because how else would LastFM get access if Spotify doesn't make it available?). Silly me. It should be quick to replace steps 1 and 3 with just one API query.
-- I should be able to schedule this process using Airflow.
-- Make d3.js visualizations responsive
-- Fix date range in `create_app_data.py` orelse data displayed may be incorrect on Mar 1.
-- Improve tooltip on heatmap
+## TO DO
+- Improve UI (grid layout)
+- Improve tooltip UI on heatmap (better out-of-bounds checking)
+- Idea: use a database (SQL) instead of working entirely with .csv. This isn't really needed for the small amount of data we're collecting, but it's good practice. Also may schedule our pipeline with cron or Airflow and host using AWS.
+   - I've started implementing this
 - Idea: show recent tracks/genres/artist (last 5, 10) in addition to "top"

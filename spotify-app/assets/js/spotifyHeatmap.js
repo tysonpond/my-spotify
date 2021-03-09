@@ -34,8 +34,8 @@ d3.csv(spotifyHeatmapDataPath,
     // append the svg object to the body of the page
     var svg = d3.select("#spotify-heatmap")
       .append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
+      .attr("viewBox", `0 0 ${width + margin.left + margin.right} ${height + margin.top + margin.bottom}`)
+      .attr('preserveAspectRatio','xMinYMin')
       .append("g")
         .attr("id","plot")
         .attr("transform",
